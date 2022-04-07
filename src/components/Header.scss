@@ -1,0 +1,47 @@
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 40px;
+	.logo{
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+	&__counter{
+		position: absolute;
+		font-size: 9px;
+		top: 8px;
+		right: 15px;
+		border-radius: 50%;
+		background: green;
+		color: white;
+		width: 13px;
+		height: 13px;
+		text-align: center;
+		line-height:13px;
+
+	}
+	&__content{
+		display: flex;
+		align-items: center;
+		& li{
+			position: relative;
+		}
+		& li,& li a{
+			display: flex;
+			align-items: center;
+		}
+		
+	}
+	&__cart{
+		cursor: pointer;
+	
+	}
+& li a[href="/favorites"]{
+	margin:0 15px;
+}
+& li span{
+	margin-left: 5px;
+}
+}
