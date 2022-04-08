@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
-import AppContext from "../context";
 import "./Header.scss"
-import React, { useContext } from 'react'
 import { useCart } from "../hooks/useCart";
 
-function Header({ setCartOpened, price, counterFavorites }) {
+function Header({ setCartOpened }) {
 	const onClickCart = () => {
 		setCartOpened(true);
 		document.querySelector("body").classList.add('lock')
 	}
-	const { totalPrice } = useCart();
+	const { totalPrice,countFavs } = useCart();
 	return (
 		<header className="header">
 			<Link to="/">
@@ -28,7 +26,7 @@ function Header({ setCartOpened, price, counterFavorites }) {
 				</li>
 				<li>
 					<Link to="/favorites">
-						{counterFavorites > 0 && <div className="header__counter">{counterFavorites}</div>}
+						{countFavs > 0 && <div className="header__counter">{countFavs}</div>}
 						<img width={18} height={18} src="/img/favorits.svg" /></Link>
 				</li>
 				<li>

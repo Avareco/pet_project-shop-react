@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Card.module.scss';
 import ContentLoader from "react-content-loader"
-import { useContext,useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import AppContext from '../../context';
 
 
@@ -9,24 +9,25 @@ function Card({ id, title, imageUrl, price,
 	onAddToFav,
 	onAddToCart,
 	favorited = false,
-	added = false,
+	added,
 	loading = false }) {
-	const [isAdded, setIsAdded] = React.useState(added);
+
 	const [isFavorite, setIsFavorite] = React.useState(favorited);
-	const { cartItems, favoriteItems, items } = useContext(AppContext)
+	const { isItemAdded, favoriteItems } = useContext(AppContext)
+
 
 	useEffect(() => {
-	  setIsAdded(added)
-	}, [cartItems,favoriteItems])
-	
+		setIsFavorite(favorited)
+	}, [favoriteItems])
 
 	const onClickPlus = () => {
-		onAddToCart({ id, title, imageUrl, price });
-		setIsAdded(!isAdded);
+		onAddToCart({ id, parentId: id, title, imageUrl, price });
+
 	};
 	const onClickFav = () => {
-		onAddToFav({ id, title, imageUrl, price });
-		setIsFavorite(!isFavorite);
+
+		onAddToFav({ id, parentId: id, title, imageUrl, price });
+		setIsFavorite(prev => prev);
 	};
 	return (
 		<div className={styles.card}>
@@ -48,7 +49,7 @@ function Card({ id, title, imageUrl, price,
 				:
 				<>
 					<div className={styles.favorite} onClick={onClickFav}>
-						<img src={isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unliked" />
+						{onAddToFav && <img src={isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unliked" />}
 					</div>
 					<img width={133} height={112} src={imageUrl} alt="Sneakers" />
 					<h5>{title}</h5>
@@ -57,12 +58,12 @@ function Card({ id, title, imageUrl, price,
 							<span>Цена:</span>
 							<b>{price} руб.</b>
 						</div>
-						<img
+						{onAddToCart && <img
 							className={styles.plus}
 							onClick={onClickPlus}
-							src={isAdded ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
+							src={isItemAdded(id) ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
 							alt="Plus"
-						/>
+						/>}
 					</div>
 				</>
 			}

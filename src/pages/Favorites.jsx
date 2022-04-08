@@ -5,7 +5,11 @@ import AppContext from '../context'
 
 export default function Favorites({ onAddToCart,onAddToFav}) {
  const {favoriteItems,cartItems} = React.useContext(AppContext)
-
+ function isFavorited(item) {
+	return (favoriteItems
+		.some(obj => Number(obj.parentId) === Number(item.id)
+		))
+}
  
 	return (
 	<div className="content">

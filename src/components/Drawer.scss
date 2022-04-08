@@ -1,6 +1,13 @@
 .items{
 	display: flex;
 	flex-wrap: wrap;
+
+	margin-left: 40px;
+	overflow: auto;
+	margin-bottom: 40px;
+	
+	
+	
 }
 .search-block {
   border: 1px solid #f3f3f3;
@@ -39,11 +46,7 @@ align-items: center;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   padding: 30px;
 
-  .items {
-   
-    overflow: auto;
-    margin-bottom: 40px;
-  }
+  
 
   h2 {
     margin: 0;

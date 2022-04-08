@@ -3,10 +3,15 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 40px;
+	background: #ffffff;
 	.logo{
+
 		display: flex;
 		align-items: center;
 		cursor: pointer;
+		& img{
+			margin-right: 10px;
+		} 
 	}
 	&__counter{
 		position: absolute;
@@ -25,6 +30,7 @@
 	&__content{
 		display: flex;
 		align-items: center;
+		
 		& li{
 			position: relative;
 		}

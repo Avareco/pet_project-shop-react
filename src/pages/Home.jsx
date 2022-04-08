@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+
 import Card from '../components/Card/Card.jsx';
 export default function Home({ findItem,
 	setFindItem,
@@ -15,10 +15,15 @@ export default function Home({ findItem,
 			.some(obj => Number(obj.id) === Number(item.id)
 			))
 	}
-	useEffect(() => {
 
-	}, [cartItems])
+	function isFavorited(item) {
+		return (favoriteItems
+			.some(obj => Number(obj.id) === Number(item.id)
+			))
+	}
 
+
+	console.log(favoriteItems)
 	const renderItems = () => {
 		if (isLoading) {
 			return (
@@ -45,8 +50,7 @@ export default function Home({ findItem,
 							onAddToFav={onAddToFav}
 							onAddToCart={(obj) => onAddToCart(obj)}
 							added={isAdded(item)}
-							favorited={favoriteItems
-								.some(obj => Number(obj.id) === Number(item.id))}
+							favorited={isFavorited(item)}
 							loading={isLoading}
 							cartItems={cartItems}
 							{...item}
@@ -76,9 +80,11 @@ export default function Home({ findItem,
 			</div>
 
 			<div className="items">
-				{
-					renderItems()
-				}
+				
+					{
+						renderItems()
+					}
+				
 			</div>
 		</div>
 	)

@@ -17,6 +17,7 @@ function Drawer({ items = [], onDelFromCart, setCartOpened }) {
 	}
 const {cartItems,setCartItems,totalPrice}=useCart();
 	const onClickOrder = async () => {
+		
 		try {
 			setIsLoading(true);
 			const { data } = await axios.post('https://623c280e2e056d1037fa7eb3.mockapi.io/orders', { items: cartItems })
