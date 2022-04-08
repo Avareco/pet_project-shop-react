@@ -7,12 +7,12 @@ function Header({ setCartOpened }) {
 		setCartOpened(true);
 		document.querySelector("body").classList.add('lock')
 	}
-	const { totalPrice,countFavs } = useCart();
+	const { totalPrice, countFavs } = useCart();
 	return (
 		<header className="header">
 			<Link to="/">
 				<div className="logo ">
-					<img width={40} height={40} src="/img/logo.png" />
+					<img width={40} height={40} src="img/logo.png" alt="logo" />
 					<div>
 						<h3 className="text-uppercase">React Sneakers</h3>
 						<p className="opacity-5">Магазин лучших кроссовок</p>
@@ -21,17 +21,17 @@ function Header({ setCartOpened }) {
 			</Link>
 			<ul className="header__content ">
 				<li onClick={onClickCart} className="header__cart ">
-					<img width={18} height={18} src="/img/cart.svg" />
+					<img width={18} height={18} src="img/cart.svg" alt="cart" />
 					<span>{totalPrice > 0 && totalPrice + " руб."}</span>
 				</li>
 				<li>
 					<Link to="/favorites">
 						{countFavs > 0 && <div className="header__counter">{countFavs}</div>}
-						<img width={18} height={18} src="/img/favorits.svg" /></Link>
+						<img width={18} height={18} src="img/favorits.svg" alt="favorite" /></Link>
 				</li>
 				<li>
 					<Link to="/orders">
-						<img width={18} height={18} src="/img/user.svg" /></Link>
+						<img width={18} height={18} src="img/user.svg" alt="user" /></Link>
 				</li>
 			</ul>
 		</header>

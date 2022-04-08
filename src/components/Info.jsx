@@ -13,7 +13,7 @@ export default function Info({ title, description, image }) {
 			<h2>{title}</h2>
 			<p class="cartEmpty__text">{description}</p>
 			<button onClick={ onCloseCard} class="greenButton">
-				<img src="/img/arrow.svg" alt="Arrow" />
+				<img src="img/arrow.svg" alt="Arrow" />
 				Вернуться назад
 			</button>
 		</div>

@@ -67,24 +67,24 @@ export default function Home({ findItem,
 					<h1>Поиск по: {findItem}</h1> :
 					<h1>Все кроссовки</h1>}
 				<div className="search-block ">
-					<img src="/img/search.svg" alt="Search" />
+					<img src="img/search.svg" alt="Search" />
 					<input
 						value={findItem}
 						onChange={e => setFindItem(e.target.value)}
 						placeholder="Поиск..." />
 					{findItem && <img onClick={() => setFindItem("")} height={30}
 						width={30}
-						src="/img/btn-remove.svg" alt="remove" />}
+						src="img/btn-remove.svg" alt="remove" />}
 
 				</div>
 			</div>
 
 			<div className="items">
-				
-					{
-						renderItems()
-					}
-				
+
+				{
+					renderItems()
+				}
+
 			</div>
 		</div>
 	)
