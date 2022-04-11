@@ -14,7 +14,7 @@ export default function Info({ title, description, image }) {
 			<p class="cartEmpty__text">{description}</p>
 			<button onClick={ onCloseCard} class="greenButton">
 				<img src="img/arrow.svg" alt="Arrow" />
-				Вернуться назад
+				Return to catalog
 			</button>
 		</div>
 	)

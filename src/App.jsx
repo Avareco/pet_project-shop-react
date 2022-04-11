@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route } from "react-router-dom";
-import Header from './components/Header.jsx';
-import Drawer from './components/Drawer.jsx';
+import Header from './components/Header/Header.jsx';
+import Drawer from './components/Drawer/Drawer.jsx';
 import Home from './pages/Home.jsx';
 import './index.scss'
 import axios from 'axios';

@@ -64,14 +64,14 @@ export default function Home({ findItem,
 			<div className="content__input">
 
 				{findItem.length > 0 ?
-					<h1>Поиск по: {findItem}</h1> :
-					<h1>Все кроссовки</h1>}
+					<h1>Search: {findItem}</h1> :
+					<h1>All sneakers</h1>}
 				<div className="search-block ">
 					<img src="img/search.svg" alt="Search" />
 					<input
 						value={findItem}
 						onChange={e => setFindItem(e.target.value)}
-						placeholder="Поиск..." />
+						placeholder="Search..." />
 					{findItem && <img onClick={() => setFindItem("")} height={30}
 						width={30}
 						src="img/btn-remove.svg" alt="remove" />}

@@ -48,7 +48,8 @@ header {
 	
 	&__input{
 		display: flex;
-justify-content: space-between;
+		flex-wrap: wrap;
+		justify-content: space-between;
 align-items: center;
 
 & h1{
@@ -58,4 +59,18 @@ align-items: center;
 }
 	}
 }
-@import 'components/Drawer.scss';
+
+@import 'components/Drawer/Drawer.scss';
+@media (max-width:767px) {
+	
+	.items{
+		margin-top: 40px;
+		justify-content: center;
+		margin-left: 0;
+		
+	}
+.search-block{
+	margin-left: 40px;
+}
+	
+}

@@ -21,14 +21,14 @@ export default function Orders() {
 			alert("Orders downloading failed")
 		}
 
-	}, [])
+	}, [])  
 	const { cartItems } = useContext(AppContext)
 
 	return (
 		<div className="content">
 			<div className="content__input">
 
-				<h1>Мои заказы</h1>
+				<h1>My orders</h1>
 
 			</div>
 

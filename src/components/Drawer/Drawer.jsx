@@ -1,10 +1,10 @@
 
 import { useState } from 'react';
 import React from 'react';
-import Info from './Info';
+import Info from '.././Info';
 
 import axios from 'axios';
-import { useCart } from '../hooks/useCart';
+import { useCart } from '../../hooks/useCart';
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 function Drawer({ items = [], onDelFromCart, setCartOpened }) {
 	const [orderComplete, setOrderComplete] = useState(false);
@@ -40,7 +40,7 @@ function Drawer({ items = [], onDelFromCart, setCartOpened }) {
 		<div className="overlay">
 			<div className="drawer">
 				<h2>
-					Корзина <img onClick={onCloseCard} className="cu-p" src="img/btn-remove.svg" alt="Close" />
+					Cart <img onClick={onCloseCard} className="cu-p" src="img/btn-remove.svg" alt="Close" />
 				</h2>
 				{items.length > 0 ?
 					<div>
@@ -53,7 +53,7 @@ function Drawer({ items = [], onDelFromCart, setCartOpened }) {
 
 									<div className="cartItemTitle">
 										<p>{obj.title}</p>
-										<b>{obj.price} руб.</b>
+										<b>{obj.price} usd</b>
 									</div>
 									<img onClick={() => onDelFromCart(obj.id)} className="removeBtn" src="img/btn-remove.svg" alt="Remove" />
 								</div>
@@ -63,26 +63,26 @@ function Drawer({ items = [], onDelFromCart, setCartOpened }) {
 						<div className="cartTotalBlock">
 							<ul>
 								<li>
-									<span>Итого:</span>
+									<span>Summary</span>
 									<div></div>
-									<b>{totalPrice}  руб. </b>
+									<b>{totalPrice} usd </b>
 								</li>
 								<li>
-									<span>Налог 5%:</span>
+									<span>Tax 5%:</span>
 									<div></div>
-									<b>{totalPrice * 0.05} руб. </b>
+									<b>{totalPrice * 0.05} usd </b>
 								</li>
 							</ul>
 							<button disabled={isLoading} onClick={onClickOrder} className="greenButton">
-								Оформить заказ <img src="img/arrow.svg" alt="Arrow" />
+								Place order <img src="img/arrow.svg" alt="Arrow" />
 							</button>
 						</div>
 					</div>
 					:
-					<Info title={orderComplete ? "Заказ Оформлен!" : "Корзина пустая"}
+					<Info title={orderComplete ? "Order placed!" : "Cart is empty"}
 						description={orderComplete ?
-							`Ваш заказ #${orderId} скоро будет передан курьерской доставке` :
-							"Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
+							`Your order #${orderId} will be shiped as soon as posible` :
+							"Add at least one pair of shoes"}
 						image={orderComplete ? "img/order-complete.jpg" : "img/empty-cart.jpg"} />
 
 				}

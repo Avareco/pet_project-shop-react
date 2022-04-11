@@ -15,7 +15,7 @@ export default function Favorites({ onAddToCart,onAddToFav}) {
 	<div className="content">
 			<div className="content__input">
 				 
-					<h1>Мои закладки</h1>
+					<h1>My favorites</h1>
 				
 			</div>
 
